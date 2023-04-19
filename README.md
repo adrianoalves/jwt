@@ -16,14 +16,14 @@ Install the package
 
 Generate private and public keys
 
-    php artisan jwt:generate
+    php artisan make:jwt-keys
 
-Modify the jwtconfig.php in your config file as necessary and add your app's Policies if necessary.
+Modify the jwt.php in your config file as necessary and add your app's Policies if necessary.
 
 Change the route driver in your auth.php config file to jwt.
 
     'guards' => [
-        'custom_guard' => [
+        'jwt' => [
             'driver' => 'jwt',
             'provider' => 'users',
         ],
@@ -32,11 +32,11 @@ Change the route driver in your auth.php config file to jwt.
 ## Auth Guard Usage
 
 ### Routing
-    Route::middleware('auth:custom_guard')->get('/user', function (Request $request) {
+    Route::middleware('auth:jwt')->get('/user', function (Request $request) {
         return $request->user();
     });
 
-    //if you set jwt as driver for your api guard
+    // if you set jwt as driver for your api guard
     Route::middleware('auth:api')->get('/user', function (Request $request) {
         return $request->user();
     });
@@ -48,5 +48,5 @@ Change the route driver in your auth.php config file to jwt.
 
 ### User
     
-    // Get the currently authenticated user
+    // Getting the currently authenticated user
     $user = Auth::user();
