@@ -1,0 +1,51 @@
+{
+    "name": "adrianoalves/jwt",
+    "description": "Luis Cobucci JWT adapted to use in Laravel",
+    "type": "library",
+    "keywords": ["php", "php8","lcobucci", "auth0", "laravel", "lumen", "jwt", "jose"],
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.1",
+        "laravel/framework": "^10",
+        "lcobucci/jwt": "^5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "AdrianoAlves\\Jwt\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Adriano Alves",
+            "email": "euoadrianoalves@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AdrianoAlves\\Jwt\\JWTServiceProvider"
+            ]
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Nobelatunje\\Jwt\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "repositories": {
+        "jwt": {
+            "type": "path",
+            "url": "src"
+        }
+    }
+}
